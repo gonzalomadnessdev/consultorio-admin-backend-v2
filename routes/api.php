@@ -17,3 +17,5 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('profesionales/{id}', [\App\Api\V1\Controllers\TestController::class, 'mostrarProfesional'])->where('id', '[0-9]+');
