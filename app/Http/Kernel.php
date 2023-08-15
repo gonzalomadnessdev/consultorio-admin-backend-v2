@@ -63,5 +63,10 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'rol' => \jeremykenedy\LaravelRoles\App\Http\Middleware\VerifyRole::class,
+        'nivel' => \jeremykenedy\LaravelRoles\App\Http\Middleware\VerifyLevel::class,
+        'tienePermiso' => \jeremykenedy\LaravelRoles\App\Http\Middleware\VerifyPermission::class,
+        'tienePermisos' => \App\Http\Middleware\VerificarPermisos::class,
+        'tieneAlMenosUnPermiso' => App\Http\Middleware\VerificarAlMenosUnPermiso::class
     ];
 }

@@ -5,6 +5,7 @@ namespace App\Api\V1\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Profesional;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class TestController extends Controller
@@ -28,5 +29,9 @@ class TestController extends Controller
                 'profesional' => $profesional
             ]
         );
+    }
+
+    public function hash(Request $request){
+        return Hash::make($request->value);
     }
 }

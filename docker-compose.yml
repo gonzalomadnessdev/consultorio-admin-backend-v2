@@ -1,0 +1,33 @@
+version: '2'
+
+services:
+  db:
+    image: mysql:8.0.34
+    ports:
+      - 3309:3306
+    volumes:
+      - dbdata:/var/lib/mysql"
+    networks:
+      - laravel9
+    environment:
+      MYSQL_DATABASE: consultorioadmin
+      MYSQL_USER: lamp_docker
+      MYSQL_PASSWORD: password
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+
+  www:
+    image: setup-host-laravel9
+    volumes:
+      - "./:/var/www/html"
+    ports:
+      - 8088:80
+      - 443:443
+    networks:
+      - laravel9
+
+volumes:
+  dbdata:
+
+networks:
+  laravel9:
+    driver: bridge
